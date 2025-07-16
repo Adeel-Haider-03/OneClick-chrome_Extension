@@ -1,0 +1,181 @@
+/* Global styles */
+body {
+  font-family: 'Inter',  'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(135deg, #FF8008 0%, #FFC837 100%);
+  color: #2d3748;
+  width: 500px;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 20px;
+
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); opacity: 0.7; }
+  50% { transform: translateY(-10px); opacity: 1; }
+}
+
+/* Main layout container */
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    0 4px 16px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  animation: slideIn 0.6s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Heading */
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: linear-gradient(135deg, #1488CC 0%, #2B32B2 100%);
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+@keyframes glow {
+  from { filter: drop-shadow(0 0 5px rgba(102, 126, 234, 0.3)); }
+  to { filter: drop-shadow(0 0 15px rgba(102, 126, 234, 0.5)); }
+}
+
+/* Button container */
+.buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* General button styles */
+button {
+  padding: 12px 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background: linear-gradient(135deg, #EDE574 0%, #E1F5C4 100%);
+  color: black;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 4px 15px rgba(102, 126, 234, 0.4),
+    0 2px 8px rgba(102, 126, 234, 0.3);
+  min-width: 100px;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: left 0.6s ease;
+}
+
+button:hover::before {
+  left: 100%;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 8px 25px rgba(102, 126, 234, 0.5),
+    0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+button:active {
+  transform: translateY(-1px);
+}
+
+.output {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  padding: 20px;
+  border-radius: 16px;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  max-height: 350px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  font-size: 1rem;
+  width: auto;
+  box-shadow: 
+    inset 0 2px 8px rgba(0, 0, 0, 0.06),
+    0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  flex: 1;
+}
+
+.output:hover {
+  box-shadow: 
+    inset 0 2px 8px rgba(0, 0, 0, 0.08),
+    0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.output::-webkit-scrollbar {
+  width: 8px;
+}
+
+.output::-webkit-scrollbar-track {
+  background: rgba(248, 250, 252, 0.5);
+  border-radius: 10px;
+}
+
+.output::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 10px;
+  opacity: 0.8;
+}
+
+.output::-webkit-scrollbar-thumb:hover {
+  opacity: 1;
+}
+
+.output pre {
+  white-space: pre-wrap;
+  word-break: normal;
+  line-break: normal;
+  overflow-x: hidden;
+  margin: 0;
+  color: #374151;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.comment {
+  color: #059669;
+  font-style: italic;
+  font-size: 0.85rem;
+  transition: color 0.3s ease;
+}
+
+.comment:hover {
+  color: #047857;
+}
