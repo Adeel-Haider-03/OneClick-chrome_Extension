@@ -27,7 +27,7 @@ async function callGemini(prompt) {
 }
 
 export async function summarizeText(text) {
-  const prompt = `Summarize this blog/article in simple language,break down in bullet points, your summary should depend upon length of blog/article.Do not write anyhting before and after just straight away response\n\n${text}`;
+  const prompt = `Summarize this blog/article in simple language,break down in bullet points, your summary should depend upon length of blog/article.Do not write anyhting before and after just straight away response and in HTML\n\n${text}`;
   return await callGemini(prompt);
 }
 
